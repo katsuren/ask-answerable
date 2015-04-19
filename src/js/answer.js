@@ -14,12 +14,30 @@ var Bootstrap = {
                 return false;
             }
         });
+
+        $(".container-wide").on("submit", ".questionBox form", function(e) {
+            e.preventDefault();
+            var that = $(this);
+            var params = that.serialize();
+            var action = that.prop("action");
+            $.ajax({
+                type: "POST",
+                url: action,
+                data: params,
+                dataType: "text",
+                complete: function(status) {
+                    var parent = that.closest(".questionBox");
+                    parent.fadeOut(200);
+                }
+            });
+            return false;
+        });
     },
 
     addAnswerBoxContainer: function(container) {
         var askId = this.getAskId(container);
         var formId = "form_" + askId;
-        var form = $("<form>", {id: formId, method: "post", action: "/questions/" + askId + "/answer"});
+        var form = $("<form>", {id: formId, class: "customForm", method: "post", action: "/questions/" + askId + "/answer", disabled: "disabled"});
         form.append('<input type="hidden" name="_method" value="put">');
         form.append('<input type="hidden" name="authenticity_token" value="' + Bootstrap.authToken + '">');
         form.append('<div id="postLoaderTerritory"><textarea class="growable-textarea" cols="0" id="post-input-pre" name="question[answer_text]" rows="0" style="overflow: hidden; line-height: 18px; height: 54px;"></textarea></div>');
