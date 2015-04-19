@@ -16,7 +16,7 @@
 
     "content_scripts": [
         {
-            "matches": ["http://anond.hatelabo.jp/*"],
+            "matches": ["http://ask.fm/account/questions"],
             "js": ["js/jquery.min.js", "js/answer.js"]
         }
     ]
