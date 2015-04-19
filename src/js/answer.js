@@ -75,6 +75,8 @@ var Bootstrap = {
 
         form.append(postOptionsBorder);
         container.append(form);
+
+        container.find("textarea").focus();
     },
 
     getAskId: function(questionBox) {
