@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "ask-answerable",
+    "version": "1.0.0",
+
+    "description": "Ask.fm の回答をしやすくする拡張",
+
+    "icons": {
+        "128": "icons/128.png"
+    },
+
+    "permissions": [
+        "https://ask.fm/",
+        "http://ask.fm/"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["http://anond.hatelabo.jp/*"],
+            "css": ["css/tooltip.css"],
+            "js": ["js/jquery.min.js", "js/answer.js"]
+        }
+    ]
+}
