@@ -15,6 +15,14 @@ var Bootstrap = {
             }
         });
 
+        $(".container-wide").on("keydown", ".questionBox textarea", function(e) {
+            // Ctrl + Enter
+            if (e.ctrlKey && e.keyCode == 13) {
+                var form = $(this).closest("form");
+                form.submit();
+            }
+        });
+
         $(".container-wide").on("submit", ".questionBox form", function(e) {
             e.preventDefault();
             var that = $(this);
