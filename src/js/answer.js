@@ -36,6 +36,13 @@ var Bootstrap = {
                 complete: function(status) {
                     var parent = that.closest(".questionBox");
                     parent.fadeOut(200);
+
+                    var another = parent.prev(".questionBox");
+                    if ( ! another.hasClass("alreadyAdded")) {
+                        Bootstrap.addAnswerBoxContainer(another);
+                    } else {
+                        another.find("textarea").focus();
+                    }
                 }
             });
             return false;
