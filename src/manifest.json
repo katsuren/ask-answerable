@@ -17,7 +17,6 @@
     "content_scripts": [
         {
             "matches": ["http://anond.hatelabo.jp/*"],
-            "css": ["css/tooltip.css"],
             "js": ["js/jquery.min.js", "js/answer.js"]
         }
     ]
